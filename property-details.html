@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Property Details - PrimeRoof</title>
+
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+  <div class="logo">
+    <img src="images/images/primeroof-logo.svg" alt="PrimeRoof Logo">
+  </div>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="listings.html">Listings</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Mobile Menu Icon -->
+  <div class="menu-toggle">&#9776;</div>
+</header>
+
+  <main class="property-page">
+
+    <section class="property-top">
+      <div class="container">
+        <div class="title-meta">
+          <h1 class="property-title">Modern 3-Bedroom Apartment in Lekki Phase 1</h1>
+          <div class="meta">
+            <span class="location">Lekki Phase 1, Lagos</span> •
+            <span class="price">₦75,000,000</span>
+          </div>
+        </div>
+
+        <!-- Gallery: main image + thumbnails under -->
+        <div class="gallery-wrap">
+          <div class="main-image">
+            <img id="mainImage" src="images/images/imge2.jpg" alt="Main property image">
+            <button id="openLightbox" class="icon-btn"><i class="fa fa-expand"></i> View photos</button>
+          </div>
+
+          <div class="thumbs-row" id="thumbsRow">
+            <!-- One of these uses your uploaded local image path for testing -->
+            <img class="thumb active" src="/mnt/data/interracial-colleagues-shaking-hands.jpg" data-large="/mnt/data/interracial-colleagues-shaking-hands.jpg" alt="thumb 1">
+            <img class="thumb" src="images/house1a.jpg" data-large="images/house1a.jpg" alt="Kitchen">
+            <img class="thumb" src="images/house1b.jpg" data-large="images/house1b.jpg" alt="Living room">
+            <img class="thumb" src="images/house1c.jpg" data-large="images/house1c.jpg" alt="Exterior">
+          </div>
+        </div>
+
+        <div class="details-contact">
+          <div class="details">
+            <h2>About this property</h2>
+            <p class="desc">
+              This modern 3-bedroom apartment features an open-plan living area, fitted kitchen, premium finishes,
+              and large windows that flood the space with light. Located in Lekki Phase 1, it’s close to shopping,
+              schools and major transport links.
+            </p>
+
+            <div class="features-grid">
+              <div class="feature">3 Beds</div>
+              <div class="feature">2 Baths</div>
+              <div class="feature">1 Kitchen</div>
+              <div class="feature">2 Parking</div>
+              <div class="feature">2400 sqft</div>
+              <div class="feature">Gated Community</div>
+            </div>
+          </div>
+
+          <aside class="contact-panel">
+            <div class="agent">
+              <img src="images/agent.jpg" alt="Agent photo" class="agent-photo">
+              <div class="agent-info">
+                <strong>Adaobi Akande</strong>
+                <span>PrimeRoof Agent</span>
+              </div>
+            </div>
+
+            <form id="inquiryForm" class="inquiry-form">
+              <input type="text" id="visitorName" placeholder="Your name" required>
+              <input type="tel" id="visitorPhone" placeholder="Phone or WhatsApp" required>
+              <textarea id="visitorMessage" rows="4" placeholder="Message or preferred viewing date"></textarea>
+              <button type="submit" class="btn-primary">Request Viewing</button>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Similar properties -->
+    <section class="similar-properties">
+      <div class="container">
+        <h3>Similar Properties</h3>
+        <div class="similar-grid">
+          <article class="sim-card">
+            <img src="images/apartment1.jpg" alt="">
+            <div class="sim-info">
+              <h4>Modern 2-Bed Apartment</h4>
+              <p>Ikoyi, Lagos</p>
+              <a href="property-details.html" class="btn-secondary">View Details</a>
+            </div>
+          </article>
+
+          <article class="sim-card">
+            <img src="images/apartment2.jpg" alt="">
+            <div class="sim-info">
+              <h4>Cozy Studio</h4>
+              <p>Victoria Island, Lagos</p>
+              <a href="property-details.html" class="btn-secondary">View Details</a>
+            </div>
+          </article>
+
+          <article class="sim-card">
+            <img src="images/apartment3.jpg" alt="">
+            <div class="sim-info">
+              <h4>Luxury Duplex</h4>
+              <p>Banana Island, Lagos</p>
+              <a href="property-details.html" class="btn-secondary">View Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <img id="lightboxImg" src="" alt="expanded photo">
+  </div>
+
+  <!-- Footer (reuse your footer markup) -->
+  <footer class="footer">
+    <!-- footer content (reuse from your site) -->
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
