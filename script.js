@@ -1,9 +1,10 @@
-const menuToggle = document.querySelector('.menu-toggle');
-const navList = document.querySelector('.navbar ul');
 
-menuToggle.addEventListener('click', () => {
-  navList.style.display = navList.style.display === 'flex' ? 'none' : 'flex';
-});
+  function toggleMenu() {
+    const nav = document.querySelector('.navbar ul');
+    nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+
 
 
   const testimonials = document.querySelectorAll(".testimonial-card");
@@ -48,3 +49,57 @@ menuToggle.addEventListener('click', () => {
     }
   });
 
+
+
+  // thumbnails -> swap main image, open lightbox
+document.addEventListener('DOMContentLoaded', () => {
+  const thumbs = document.querySelectorAll('.thumbs-row .thumb');
+  const mainImage = document.getElementById('mainImage');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const openLightbox = document.getElementById('openLightbox');
+
+  thumbs.forEach(t => {
+    t.addEventListener('click', () => {
+      thumbs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const large = t.dataset.large || t.src;
+      mainImage.src = large;
+    });
+  });
+
+  // open lightbox
+  if (openLightbox) {
+    openLightbox.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = mainImage.src;
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  // close lightbox when clicking backdrop
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxImg) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // inquiry form submit (demo behaviour)
+  const form = document.getElementById('inquiryForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('visitorName').value.trim();
+      const phone = document.getElementById('visitorPhone').value.trim();
+      if (!name || !phone) {
+        alert('Please enter name and phone.');
+        return;
+      }
+      alert('Request sent. Agent will contact you soon.');
+      form.reset();
+    });
+  }
+});

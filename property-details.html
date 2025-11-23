@@ -13,22 +13,21 @@
 </head>
 <body>
 
-  <header class="header">
+<header class="header">
   <div class="logo">
-    <img src="images/images/primeroof-logo.svg" alt="PrimeRoof Logo">
+    <img src="images/images/primeroof-logo.svg" alt="Logo">
   </div>
 
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
   <nav class="navbar">
-    <ul>
+    <ul id="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="listings.html">Listings</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="listings.html">Listings</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-
-  <!-- Mobile Menu Icon -->
-  <div class="menu-toggle">&#9776;</div>
 </header>
 
   <main class="property-page">
@@ -46,16 +45,16 @@
         <!-- Gallery: main image + thumbnails under -->
         <div class="gallery-wrap">
           <div class="main-image">
-            <img id="mainImage" src="images/images/imge2.jpg" alt="Main property image">
+            <img id="mainImage" src="images/images/image7.jpg" alt="Main property image">
             <button id="openLightbox" class="icon-btn"><i class="fa fa-expand"></i> View photos</button>
           </div>
 
           <div class="thumbs-row" id="thumbsRow">
             <!-- One of these uses your uploaded local image path for testing -->
-            <img class="thumb active" src="/mnt/data/interracial-colleagues-shaking-hands.jpg" data-large="/mnt/data/interracial-colleagues-shaking-hands.jpg" alt="thumb 1">
-            <img class="thumb" src="images/house1a.jpg" data-large="images/house1a.jpg" alt="Kitchen">
-            <img class="thumb" src="images/house1b.jpg" data-large="images/house1b.jpg" alt="Living room">
-            <img class="thumb" src="images/house1c.jpg" data-large="images/house1c.jpg" alt="Exterior">
+            <img class="thumb active" src="images/images/studenthostel.jpg" data-large="images/images/studenthostel.jpg" alt="thumb 1">
+            <img class="thumb" src="images/images/image2_kitchen.jpg" data-large="images/images/image2_kitchen.jpg" alt="Kitchen">
+            <img class="thumb" src="images/images/image2_sittingroom.jpg" data-large="images/images/image2_sittingroom.jpg" alt="Living room">
+            <img class="thumb" src="images/images/image2_interior.jpg" data-large="images/images/image2_interior.jpg" alt="Interior">
           </div>
         </div>
 
@@ -80,7 +79,7 @@
 
           <aside class="contact-panel">
             <div class="agent">
-              <img src="images/agent.jpg" alt="Agent photo" class="agent-photo">
+              <img src="images/images/muslimah.jpg" alt="Agent photo" class="agent-photo">
               <div class="agent-info">
                 <strong>Adaobi Akande</strong>
                 <span>PrimeRoof Agent</span>
@@ -104,7 +103,7 @@
         <h3>Similar Properties</h3>
         <div class="similar-grid">
           <article class="sim-card">
-            <img src="images/apartment1.jpg" alt="">
+            <img src="images/images/image5.jpg" alt="">
             <div class="sim-info">
               <h4>Modern 2-Bed Apartment</h4>
               <p>Ikoyi, Lagos</p>
@@ -113,7 +112,7 @@
           </article>
 
           <article class="sim-card">
-            <img src="images/apartment2.jpg" alt="">
+            <img src="images/images/image3_stydyroom.jpg" alt="">
             <div class="sim-info">
               <h4>Cozy Studio</h4>
               <p>Victoria Island, Lagos</p>
@@ -122,7 +121,7 @@
           </article>
 
           <article class="sim-card">
-            <img src="images/apartment3.jpg" alt="">
+            <img src="images/images/image3.jpg" alt="">
             <div class="sim-info">
               <h4>Luxury Duplex</h4>
               <p>Banana Island, Lagos</p>
@@ -140,12 +139,105 @@
     <img id="lightboxImg" src="" alt="expanded photo">
   </div>
 
-  <!-- Footer (reuse your footer markup) -->
-  <footer class="footer">
-    <!-- footer content (reuse from your site) -->
-  </footer>
+ <footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Logo + Description -->
+    <div class="footer-logo">
+      <img src="images/images/primeroof-logo.svg" alt="PrimeRoof Logo">
+      <p>PrimeRoof helps you find and sell properties easily and confidently. Trusted by hundreds of happy clients.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Email: support@primeroof.com</p>
+      <p>Phone: +234 812 345 6789</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 PrimeRoof. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
 
   <!-- Scripts -->
-  <script src="script.js"></script>
+  <script>
+          // thumbnails -> swap main image, open lightbox
+document.addEventListener('DOMContentLoaded', () => {
+  const thumbs = document.querySelectorAll('.thumbs-row .thumb');
+  const mainImage = document.getElementById('mainImage');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const openLightbox = document.getElementById('openLightbox');
+
+  thumbs.forEach(t => {
+    t.addEventListener('click', () => {
+      thumbs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const large = t.dataset.large || t.src;
+      mainImage.src = large;
+    });
+  });
+
+  // open lightbox
+  if (openLightbox) {
+    openLightbox.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = mainImage.src;
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  // close lightbox when clicking backdrop
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxImg) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // inquiry form submit (demo behaviour)
+  const form = document.getElementById('inquiryForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('visitorName').value.trim();
+      const phone = document.getElementById('visitorPhone').value.trim();
+      if (!name || !phone) {
+        alert('Please enter name and phone.');
+        return;
+      }
+      alert('Request sent. Agent will contact you soon.');
+      form.reset();
+    });
+  }
+});
+
+  </script>
 </body>
 </html>
